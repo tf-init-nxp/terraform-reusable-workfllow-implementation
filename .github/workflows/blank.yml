@@ -1,0 +1,16 @@
+name: Terraform Reusable Worfkflow Implementation
+
+on:
+
+  workflow_dispatch:
+    inputs:
+      destroy:
+        description: Whether to destroy infra
+        type: boolean
+        required: false
+        default: false
+jobs:
+  terraform:
+    uses: nelsonrp24/terraform-reusable-workflow/.github/workflows/terraformWorkFlow.yml@main
+          
+      
