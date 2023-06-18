@@ -15,5 +15,7 @@ on:
 jobs:
   terraform:
     uses: nelsonrp24/terraform-reusable-workflow/.github/workflows/terraformWorkFlow.yml@main
+    with:
+      destroy: ${{ inputs.destroy }}
           
       
