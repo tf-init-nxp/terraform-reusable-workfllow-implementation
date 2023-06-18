@@ -1,0 +1,14 @@
+name: Terraform Reusable Worfkflow Implementation
+
+on:
+  push:
+    branches: [ "main","develop" ]
+  pull_request:
+    branches: [ "main","develop" ]
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  terraform:
+    uses: nelsonrp24/terraform-reusable-workflow/.github/workflows/terraformWorkFlow.yml@main
+      
