@@ -5,17 +5,28 @@ on:
   push:
     branches: [ "main","develop" ]
 
-  workflow_dispatch:
-    inputs:
-      destroy:
-        description: Whether to destroy infra
-        type: boolean
-        required: false
-        default: false
 jobs:
-  terraform:
-    uses: nelsonrp24/terraform-reusable-workflow/.github/workflows/terraformWorkFlow.yml@main
-    with:
-      destroy: ${{ inputs.destroy }}
-          
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
+    # You can use configuration variables with the `vars` context for dynamic jobs
+    #if: ${{ vars.USE_VARIABLES == 'true' }}
+    runs-on: ubuntu-latest
+    #environment: ${{ vars.ENVIRONMENT_STAGE }}
+    steps:
+    - name: Use variables
+      run: |
+        echo "repository variable : $REPOSITORY_VAR"
+     #   echo "organization variable : $ORGANIZATION_VAR"
+     #   echo "overridden variable : $OVERRIDE_VAR"
+     #   echo "variable from shell environment : $env_var"
+      #env:
+      #  REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+      #  ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+      #  OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+      #  
+    #- name: ${{ vars.HELLO_WORLD_STEP }}
+    #  if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
+    #  uses: actions/hello-world-javascript-action@main
+    #  with:
+    #    who-to-greet: ${{ vars.GREET_NAME }}
       
