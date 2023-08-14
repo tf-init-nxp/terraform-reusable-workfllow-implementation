@@ -15,8 +15,8 @@ jobs:
     steps:
     - name: Use variables
       run: |
-        echo "repository variable : ${{ vars.REPOSITORY_VAR }}"
-     #   echo "organization variable : $ORGANIZATION_VAR"
+        echo "repository variable : ${{ vars.REPOSITORY_VAR }}" 
+        echo "organization variable ${{ vars.AZ_TENANT_ID }}"
      #   echo "overridden variable : $OVERRIDE_VAR"
      #   echo "variable from shell environment : $env_var"
       #env:
